@@ -7,5 +7,6 @@ package shop.bawei.com.application;
 public class Test {
 
     int a=0;
+    private int age = 24;
 
 }
