@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BaWayShop</string>
+    <string name="first_page">首页</string>
+    <string name="category_page">分类</string>
+    <string name="action_page">活动</string>
+    <string name="brand_page">品牌</string>
+    <string name="my_page">我的冰帆</string>
+</resources>

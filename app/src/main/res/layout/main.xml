@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/tab_content"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.0"
+             />
+
+        <RadioGroup
+            android:id="@+id/tabs_all"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="7dp"
+            android:paddingTop="7dp">
+
+            <RadioButton
+                android:id="@+id/tab_main"
+                style="@style/TabTextViewStyle"
+                android:checked="true"
+                android:drawableTop="@drawable/selector_home"
+                android:text="@string/first_page" />
+
+            <RadioButton
+                android:id="@+id/tab_category"
+                style="@style/TabTextViewStyle"
+                android:drawableTop="@drawable/selector_category"
+                android:text="@string/category_page" />
+
+            <RadioButton
+                android:id="@+id/tab_action"
+                style="@style/TabTextViewStyle"
+                android:drawableTop="@drawable/selector_action"
+                android:text="@string/action_page" />
+
+            <RadioButton
+                android:id="@+id/tab_brand"
+                style="@style/TabTextViewStyle"
+                android:drawableTop="@drawable/selector_brand"
+                android:text="@string/brand_page" />
+
+            <RadioButton
+                android:id="@+id/tab_my"
+                style="@style/TabTextViewStyle"
+                android:drawableTop="@drawable/selector_my"
+                android:text="@string/my_page" />
+
+        </RadioGroup>
+    </LinearLayout>
+</LinearLayout>
+
