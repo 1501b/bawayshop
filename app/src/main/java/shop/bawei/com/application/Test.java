@@ -6,4 +6,6 @@ package shop.bawei.com.application;
 
 public class Test {
 
+    int a=0;
+
 }
