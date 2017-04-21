@@ -9,7 +9,9 @@ import java.util.Date;
  */
 
 public class ApplicationConstants {
-    private static final String LINK_MAIN = "http://192.168.1.105/";
+   // private static final String LINK_MAIN = "http://192.168.1.105/";
+    private static final String LINK_MAIN = "http://192.168.56.1/";
+    //private static final String LINK_MAIN = "http://169.254.2.120/";
     private static final String LINK_MOBILE = LINK_MAIN + "mobile/index.php?act=";
     public static final String LINK_MOBILE_CLASS = LINK_MOBILE + "goods_class";
     private static int pageSize = 15;

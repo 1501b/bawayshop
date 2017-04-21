@@ -43,13 +43,7 @@
                 android:id="@+id/tab_action"
                 style="@style/TabTextViewStyle"
                 android:drawableTop="@drawable/selector_action"
-                android:text="@string/action_page" />
-
-            <RadioButton
-                android:id="@+id/tab_brand"
-                style="@style/TabTextViewStyle"
-                android:drawableTop="@drawable/selector_brand"
-                android:text="@string/brand_page" />
+                android:text="@string/cart_page" />
 
             <RadioButton
                 android:id="@+id/tab_my"

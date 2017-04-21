@@ -19,10 +19,9 @@ import okhttp3.Callback;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class OkHttpClientManager {
+public class OkHttpClientManager2 {
     // 超时时间
     public static final int TIMEOUT = 1000 * 60;
     private static final OkHttpClient mOkHttpClient = new OkHttpClient();
@@ -54,48 +53,41 @@ public class OkHttpClientManager {
     }
 
     /**
-     * @param url 请求url
+     *
+     * @param url 请求地址
      * @param params 参数 键值对
-     * @param responseCallback 回调
+     * @param responseCallback  回调
      */
-    public void get(String url,Map<String,String> params,Callback responseCallback) {
-       StringBuffer stringBuffer = new StringBuffer();
+    public static void get(String url, Map<String, String> params, Callback responseCallback) {
+        StringBuffer sb = new StringBuffer();
         if (params != null && params.size() > 0) {
-            stringBuffer.append("?");
-            Set<Map.Entry<String,String>> sets = params.entrySet();
-            for(Map.Entry entry:sets){
-                stringBuffer.append(entry.getKey());
-                stringBuffer.append("=");
+            sb.append("?");
+            Set<Map.Entry<String, String>> entries = params.entrySet();
+            for (Map.Entry<String, String> entry:entries) {
+                sb.append(entry.getKey());
+                sb.append("=");
                 try {
-                    stringBuffer.append(URLEncoder.encode(String.valueOf(entry.getValue()),"UTF-8"));
+                    sb.append(URLEncoder.encode(entry.getValue(),"UTF-8"));
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
-                stringBuffer.append("&");
+                sb.append("&");
             }
-            stringBuffer.deleteCharAt(stringBuffer.length() - 1);
-
+            sb.deleteCharAt(sb.length() - 1);
         }
-        Request request = new Request.Builder().url(url+stringBuffer.toString()).build();
+        Request request = new Request.Builder().url(url+sb.toString()).build();
         mOkHttpClient.newCall(request).enqueue(responseCallback);
     }
 
-    /**
-     *
-     * @param url
-     * @param params
-     * @param responseCallback
-     */
-    public void post(String url,Map<String,String> params,Callback responseCallback) {
-        FormBody.Builder builder = new FormBody.Builder();
-        if (params != null && params.size() > 0) {
-            Set<Map.Entry<String,String>> sets = params.entrySet();
-            for(Map.Entry<String,String> entry:sets){
-                builder.add(entry.getKey(),entry.getValue());
-            }
-        }
-
-        Request request = new Request.Builder().url(url).post(builder.build()).build();
+    public void post(String url,Map<String, String> params, Callback responseCallback) {
+        FormBody.Builder formBodyBuilder = new FormBody.Builder();
+        if (params !=null && params.size() > 0) {
+           Set<Map.Entry<String, String>> entries = params.entrySet();
+           for (Map.Entry<String, String> entry:entries) {
+               formBodyBuilder.add(entry.getKey(),entry.getValue());
+           }
+       }
+        Request request = new Request.Builder().url(url).post(formBodyBuilder.build()).build();
         mOkHttpClient.newCall(request).enqueue(responseCallback);
     }
 

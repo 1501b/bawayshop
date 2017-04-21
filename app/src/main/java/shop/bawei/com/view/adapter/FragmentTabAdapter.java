@@ -11,7 +11,7 @@ import shop.bawei.com.R;
 
 public class FragmentTabAdapter implements RadioGroup.OnCheckedChangeListener{
     private List<Fragment> fragments; // 一个tab页面对应一个Fragment
-    private RadioGroup rgs; // 用于切换tab
+    private RadioGroup radioGroup; // 用于切换tab
     private FragmentActivity fragmentActivity; // Fragment所属的Activity
     private int fragmentContentId; // Activity中所要被替换的区域的id
 
@@ -21,7 +21,7 @@ public class FragmentTabAdapter implements RadioGroup.OnCheckedChangeListener{
 
     public FragmentTabAdapter(FragmentActivity fragmentActivity, List<Fragment> fragments, int fragmentContentId, RadioGroup rgs) {
         this.fragments = fragments;
-        this.rgs = rgs;
+        this.radioGroup = rgs;
         this.fragmentActivity = fragmentActivity;
         this.fragmentContentId = fragmentContentId;
 
@@ -37,8 +37,8 @@ public class FragmentTabAdapter implements RadioGroup.OnCheckedChangeListener{
 
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
-        for(int i = 0; i < rgs.getChildCount(); i++){
-            if(rgs.getChildAt(i).getId() == checkedId){
+        for(int i = 0; i < radioGroup.getChildCount(); i++){
+            if(radioGroup.getChildAt(i).getId() == checkedId){
                 Fragment fragment = fragments.get(i);
                 FragmentTransaction ft = obtainFragmentTransaction(i);
 
